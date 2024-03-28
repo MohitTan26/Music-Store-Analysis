@@ -1,5 +1,3 @@
-/*	Question Set 1 - Easy */
-
 /* Q1: Who is the senior most employee based on job title? */
 
 SELECT title, last_name, first_name 
@@ -44,12 +42,7 @@ GROUP BY customer.customer_id
 ORDER BY total_spending DESC
 LIMIT 1;
 
-
-
-
-/* Question Set 2 - Moderate */
-
-/* Q1: Write query to return the email, first name, last name, & Genre of all Rock Music listeners. 
+/* Q6: Write query to return the email, first name, last name, & Genre of all Rock Music listeners. 
 Return your list ordered alphabetically by email starting with A. */
 
 /*Method 1 Optimum Query*/
@@ -77,7 +70,7 @@ JOIN genre ON genre.genre_id = track.genre_id
 WHERE genre.name LIKE 'Rock'
 ORDER BY email;
 
-/* Q2: Let's invite the artists who have written the most rock music in our dataset. 
+/* Q7: Let's invite the artists who have written the most rock music in our dataset. 
 Write a query that returns the Artist name and total track count of the top 10 rock bands. */
 
 SELECT artist.name, artist.artist_id, count(artist.artist_id) as number_of_track
@@ -90,7 +83,7 @@ GROUP BY artist.artist_id
 ORDER BY number_of_track DESC
 LIMIT 10;
 
-/* Q3: Return all the track names that have a song length longer than the average song length. 
+/* Q8: Return all the track names that have a song length longer than the average song length. 
 Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first. */
 
 SELECT name, milliseconds
@@ -101,9 +94,7 @@ WHERE milliseconds > (
 	)
 ORDER BY milliseconds DESC;
 
-/*Advance: */
-
-/* Q1: Find how much amount spent by eah customer on artist? Write a query to 
+/* Q9: Find how much amount spent by eah customer on artist? Write a query to 
 return customer name, artist and total spent*/
 
 WITH best_selling_artist AS (
@@ -128,7 +119,7 @@ JOIN best_selling_artist bsa ON bsa.artist_id = alb.artist_id
 GROUP BY 1,2,3,4
 ORDER BY 5 DESC;
 
-/* Q2: We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre 
+/* Q10: We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre 
 with the highest amount of purchases. Write a query that returns each country along with the top Genre. For countries where 
 the maximum number of purchases is shared return all Genres. */
 
@@ -175,7 +166,7 @@ JOIN max_genre_per_country ON sales_per_country.country = max_genre_per_country.
 WHERE sales_per_country.purchases_per_genre = max_genre_per_country.max_genre_number;
 
 
-/* Q3: Write a query that determines the customer that has spent the most on music for each country. 
+/* Q11: Write a query that determines the customer that has spent the most on music for each country. 
 Write a query that returns the country along with the top customer and how much they spent. 
 For countries where the top amount spent is shared, provide all customers who spent this amount. */
 
@@ -217,6 +208,4 @@ WHERE cc.total_spending = ms.max_spending
 ORDER BY 1;
 
 
-/* source: www.youtube.com/@RishabhMishraOfficial */
-
-/* Thank You :) */
+/* 
